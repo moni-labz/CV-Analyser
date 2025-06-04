@@ -29,77 +29,143 @@ Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random co
 | **Dependency-light**      | Just six runtime libraries—cold-starts are fast even on free-tier hosts.                                           |
 
 ---
+Sure! Here's a **clean, detailed, beginner-friendly "Install & Run" section** you can directly copy into your `README.md`.
+It uses **step-by-step instructions**, **separate command blocks**, and includes explanations for both **Windows** and **Linux/macOS**.
 
-Below is the revised **Install & Run** section, now pointing to **your repository** at `https://github.com/moni-labz/CV-Analyser.git`.
-Replace the previous block in your README with this one.
+---
 
 ````markdown
-## 🛠 Quick-start
+## 🛠 How to Install and Run the Resume Analyzer
 
-### 1 · Clone the repo
+Follow the steps below to set up and run the Resume Analyzer app on your system.
+
+---
+
+### 🔁 Step 1: Clone the Repository
+
+Open your terminal or command prompt and run:
 
 ```bash
 git clone https://github.com/moni-labz/CV-Analyser.git
 cd CV-Analyser
 ````
 
-### 2 · Create & activate a virtual environment
+---
+
+### 🐍 Step 2: Set Up a Virtual Environment (Recommended)
+
+A virtual environment keeps your dependencies clean and isolated.
+
+#### 🔹 For **Windows** (PowerShell):
 
 ```bash
-python -m venv .venv          # create venv
-# ───────────── macOS/Linux ─────────────
-source .venv/bin/activate
-# ─────────── Windows (PowerShell) ───────
-.\.venv\Scripts\Activate.ps1
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 ```
 
-### 3 · Install dependencies
+#### 🔹 For **Linux/macOS**:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+---
+
+### 📦 Step 3: Install the Required Python Libraries
+
+Once the virtual environment is activated, install the required dependencies:
 
 ```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4 · Add your Google AI Studio API key
+This will install:
+
+* `streamlit` – for the user interface
+* `requests` – for calling the Gemini API
+* `PyPDF2` – for reading PDF resumes
+* `python-docx` – for reading Word resumes
+* `pandas` – for generating the CSV output
+
+---
+
+### 🔑 Step 4: Get Your Google Gemini API Key
+
+1. Go to [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+2. Click **“Create API Key”**.
+3. Name it something like `resume-tool-key`.
+4. Copy the key that starts with `AIza...`.
+
+---
+
+### 🔐 Step 5: Set Your API Key
+
+You have two options to provide your Gemini API key.
+
+#### ✅ Option A: Set as Environment Variable (Recommended)
+
+##### 🔹 For **Windows** (PowerShell):
 
 ```bash
-# macOS / Linux
-export GEMINI_API_KEY="AIza…"
-
-# Windows PowerShell
-setx GEMINI_API_KEY "AIza…"
+$env:GEMINI_API_KEY="AIzaYourKeyHere"
 ```
 
-*(Or paste the key into `streamlit_app.py` if you prefer—environment variables are safer for production.)*
+##### 🔹 For **Linux/macOS**:
 
-### 5 · Run the app
+```bash
+export GEMINI_API_KEY="AIzaYourKeyHere"
+```
+
+#### ⚠️ Option B: Hardcode in the Code (Not Recommended for Production)
+
+Open `streamlit_app.py` and find this line:
+
+```python
+API_KEY = "GEMINI_API_KEY"  # ← replace this
+```
+
+Replace it with:
+
+```python
+API_KEY = "AIzaYourKeyHere"
+```
+
+---
+
+### ▶️ Step 6: Run the Streamlit App
+
+Now you're ready to launch the app:
 
 ```bash
 streamlit run streamlit_app.py
 ```
 
-Open **[http://localhost:8501](http://localhost:8501)** in your browser and you’re ready to analyze résumés!
-
----
+After a few seconds, the app will open automatically in your browser at:
 
 ```
-
-This snippet drops straight into your README and uses your GitHub URL, keeping the rest of the workflow unchanged.
+http://localhost:8501
 ```
----
-
-## 🚀  Using the Tool
-
-1. **Upload** up to five resumes (PDF or DOCX).
-2. Click **“🔍 Analyze & Download CSV”**.
-3. Watch the per-resume section:
-
-   * 🟡 *Spinner* → Gemini is working.
-   * ✅ *Finished* → That file has been parsed and added to the table.
-4. When all are done, a **📥 Download Combined CSV** button appears.
-5. Click it, save `resumes.csv`, open it in Excel/Sheets/your ATS.
 
 ---
+
+## 🚀 How to Use the Resume Analyzer
+
+1. Upload up to **five resumes** in PDF or DOCX format.
+2. Click on **🔍 Analyze & Download CSV**.
+3. Wait while each resume is processed:
+
+   * 🟡 *Spinner* → Gemini is extracting data.
+   * ✅ *Finished* → Resume successfully analyzed.
+4. Once all resumes are processed, click **📥 Download Combined CSV**.
+5. Open the CSV in **Excel, Google Sheets, or your ATS**.
+
+---
+
+✅ You're now ready to analyze resumes at scale with the power of **Google Gemini** and **Streamlit**!
+
+```
 
 ## 🔧 Suggested Code Improvements
 
@@ -140,36 +206,3 @@ Happy parsing! Pull requests are welcome.
 ````
 
 ---
-
-### **requirements.txt** (copy-ready)
-
-```text
-streamlit>=1.33
-requests>=2.31
-pandas>=2.2
-PyPDF2>=3.0
-python-docx>=1.1
-````
-
----
-
-#### Quick Code-Change Checklist
-
-1. **API Key**
-
-   ```python
-   import os
-   API_KEY = os.getenv("GEMINI_API_KEY", "REPLACE_ME")
-   ```
-2. **Optional retry cap**
-
-   ```python
-   MAX_RETRIES = 5
-   ```
-3. **Optional exponential back-off**
-
-   ```python
-   wait_s = min(60, 2 ** attempt)   # max 60 s
-   ```
-
-Once those tweaks are in place, follow the *Quick-start* steps above and you’re set!
