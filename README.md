@@ -1,8 +1,3 @@
-Below is a complete, copy-ready **README.md** followed by the **requirements.txt** and a short checklist of code tweaks.
-Everything is written so someone with only basic Python knowledge can get the app running in a few minutes.
-
----
-
 ````markdown
 # 📄 Resume Analyzer – “Gemini-Powered” Streamlit App
 
