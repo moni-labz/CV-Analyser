@@ -1,6 +1,6 @@
 # 📄 Resume Analyzer — *AI-Powered* Streamlit App
 
-Automatically turn **up to five** PDF / DOCX résumés into a neat CSV.
+Automatically turn  PDF / DOCX résumés into a neat CSV.
 
 | Field Group     | What You Get                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------|
