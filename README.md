@@ -115,7 +115,7 @@ export GEMINI_API_KEY="AIzaYourKeyHere"
 
 #### ⚠️ Option B: Hardcode in the Code (Not Recommended for Production)
 
-Open `streamlit_app.py` and find this line:
+Open `app.py` and find this line:
 
 ```python
 API_KEY = "GEMINI_API_KEY"  # ← replace this
