@@ -160,35 +160,9 @@ http://localhost:8501
 
 ✅ You're now ready to analyze resumes at scale with the power of **Google Gemini** and **Streamlit**!
 
-```
 
-## 🔧 Suggested Code Improvements
 
-| Area                  | Change                                                                        | Why                                       |
-| --------------------- | ----------------------------------------------------------------------------- | ----------------------------------------- |
-| **Secrets handling**  | Replace `API_KEY="GEMINI_API_KEY"` with `API_KEY=os.getenv("GEMINI_API_KEY")` | Keeps keys out of source control.         |
-| **Retry policy**      | Set `MAX_RETRIES = 5` (or cfg via sidebar)                                    | Prevents infinite loops on long outages.  |
-| **Back-off strategy** | Switch from random to exponential (e.g., `time.sleep(2 ** attempt)`)          | Converges faster and respects API limits. |
-| **PDF performance**   | Cache `extract_pdf` results with `@st.cache_data`                             | Speeds up re-runs on the same file.       |
-| **Error logging**     | Write Gemini errors to a log file instead of only `st.info`                   | Easier debugging after batch runs.        |
-| **Accessibility**     | Add `st.caption` under buttons explaining size/format limits                  | Improves usability for new HR users.      |
-| **CI/CD**             | Include GitHub Actions workflow to run `flake8` & `pytest`                    | Keeps code quality high as project grows. |
 
----
-
-## 📦 requirements.txt
-
-```
-streamlit>=1.33
-requests>=2.31
-pandas>=2.2
-PyPDF2>=3.0
-python-docx>=1.1
-```
-
-*(Python 3.9+ recommended; the app is OS-agnostic.)*
-
----
 
 ## 📝 License
 
