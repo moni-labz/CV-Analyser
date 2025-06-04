@@ -30,8 +30,6 @@ Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random co
 
 ---
 
-
-````markdown
 ## 🛠 How to Install and Run the Resume Analyzer
 
 Follow the steps below to set up and run the Resume Analyzer app on your system.
