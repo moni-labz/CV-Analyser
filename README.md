@@ -30,47 +30,62 @@ Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random co
 
 ---
 
+Below is the revised **Install & Run** section, now pointing to **your repository** at `https://github.com/moni-labz/CV-Analyser.git`.
+Replace the previous block in your README with this one.
+
+````markdown
 ## 🛠 Quick-start
 
-### 1 · Clone & install
+### 1 · Clone the repo
 
 ```bash
-git clone https://github.com/your-handle/resume-analyzer.git
-cd resume-analyzer
+git clone https://github.com/moni-labz/CV-Analyser.git
+cd CV-Analyser
+````
 
-python -m venv .venv
-# Windows ➜ .\.venv\Scripts\activate
+### 2 · Create & activate a virtual environment
+
+```bash
+python -m venv .venv          # create venv
+# ───────────── macOS/Linux ─────────────
 source .venv/bin/activate
+# ─────────── Windows (PowerShell) ───────
+.\.venv\Scripts\Activate.ps1
+```
 
+### 3 · Install dependencies
+
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
-### 2. Get a Google AI Studio **API key**
+```
 
-1. Open **[https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)** (or “API Keys” in Google AI Studio left menu).
-2. Click **“Create API key”** → give it a name (e.g., `gemini-resume-tool`).
-3. Copy the key that starts with `AIza…`.
-4. Either:
+### 4 · Add your Google AI Studio API key
 
-   * **Option A** – set an environment variable
+```bash
+# macOS / Linux
+export GEMINI_API_KEY="AIza…"
 
-     ```bash
-     export GEMINI_API_KEY="AIza…"      # Windows PowerShell: setx GEMINI_API_KEY "AIza…"
-     ```
-   * **Option B** – paste it straight into `streamlit_app.py` at the top:
+# Windows PowerShell
+setx GEMINI_API_KEY "AIza…"
+```
 
-     ```python
-     API_KEY = "AIza…"   # ← replace
-     ```
+*(Or paste the key into `streamlit_app.py` if you prefer—environment variables are safer for production.)*
 
-> **Tip:** for production, always prefer environment variables or a `.env` file to avoid accidentally publishing secrets.
-
-### 3. Run the app
+### 5 · Run the app
 
 ```bash
 streamlit run streamlit_app.py
 ```
 
-It launches on **[http://localhost:8501](http://localhost:8501)** by default.
+Open **[http://localhost:8501](http://localhost:8501)** in your browser and you’re ready to analyze résumés!
 
+---
+
+```
+
+This snippet drops straight into your README and uses your GitHub URL, keeping the rest of the workflow unchanged.
+```
 ---
 
 ## 🚀  Using the Tool
