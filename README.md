@@ -172,6 +172,3 @@ MIT – free for personal or commercial use. Please keep the original copyright 
 
 Happy parsing! Pull requests are welcome.
 
-````
-
----
