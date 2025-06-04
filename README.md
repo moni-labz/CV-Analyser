@@ -1,48 +1,48 @@
-````markdown
-# 📄 Resume Analyzer – “Gemini-Powered” Streamlit App
+# 📄 Resume Analyzer — *Gemini-Powered* Streamlit App
 
-Automatically turn up to **five** PDF / DOCX résumés into a single, tidy CSV that contains:
+Automatically turn **up to five** PDF / DOCX résumés into a neat CSV.
 
-| Field Group | What You Get |
-|-------------|--------------|
-| Personal    | Full name, phone, email, LinkedIn, location, date of birth |
-| Experience  | Company-wise breakdown **plus** auto-calculated “Total experience” (`X years Y months`) |
-| Projects    | Title + description for every project Gemini can spot |
-| Certifications | A semicolon-separated list |
+| Field Group     | What You Get                                                                                         |
+|-----------------|-------------------------------------------------------------------------------------------------------|
+| **Personal**    | Full name, phone, email, LinkedIn, location, date of birth                                            |
+| **Experience**  | Company-by-company breakdown **plus** auto-calculated “Total experience” (`X years Y months`)         |
+| **Projects**    | Title + description for every project Gemini can detect                                               |
+| **Certifications** | A semicolon-separated list                                                                         |
 
-Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random cool-off, the app keeps requesting until it succeeds, so you don’t have to babysit it.
-
----
-
-## ✨ Key Strengths (Why this repo is worth a ⭐)
-
-| Aspect | Positive Point |
-|--------|----------------|
-| **Reliability** | Auto-retry with random 10–20 s cool-off means brief API outages never kill your run. |
-| **Data cleanliness** | Regular-expression scrubbers remove control chars and code fences before `json.loads`, preventing parse errors. |
-| **Strict JSON contract** | Prompts force Gemini to return *only* valid JSON in a fixed schema, avoiding hallucinated prose. |
-| **Multi-format support** | Reads both PDFs (`PyPDF2`) and Word docs (`python-docx`) out-of-the-box. |
-| **Overlap-safe experience calc** | Requests Gemini to count overlapping jobs only once, delivering realistic totals. |
-| **No local ML heavy-lifting** | All NLP happens in the cloud, so the app remains lightweight and deploys easily on small VPSes. |
-| **Instant CSV download** | One click to get a combined CSV—ready for Excel, Google Sheets, ATS, or BI dashboards. |
-| **User-friendly UI** | Single-page Streamlit layout, progress spinners, and emoji-based status make analysis painless for non-tech HR staff. |
-| **Config-driven** | API key, retry policy, model path, and cool-off range live in one “CONFIG” block—no code hunting. |
-| **Dependency-light** | Only six runtime libraries; cold-start is fast even on free-tier hosts. |
+Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random cool-off intervals, the app just keeps trying until it succeeds—no babysitting required.
 
 ---
 
-## 🛠  Quick-start
+## ✨ Key Strengths
 
-### 1. Clone & install
+| Aspect                    | Why It Rocks                                                                                                      |
+|---------------------------|--------------------------------------------------------------------------------------------------------------------|
+| **Reliability**           | Auto-retry with 10–20 s random cool-off—brief API hiccups never kill a run.                                        |
+| **Data cleanliness**      | Regex scrub removes control characters & code fences before `json.loads`, avoiding parse errors.                   |
+| **Strict JSON contract**  | Prompts force Gemini to return **only** valid JSON in a fixed schema, preventing hallucinated prose.               |
+| **Multi-format support**  | Reads PDFs (`PyPDF2`) *and* Word docs (`python-docx`) out of the box.                                              |
+| **Overlap-safe exp calc** | Tells Gemini to count overlapping jobs only once, yielding realistic totals.                                       |
+| **Lightweight**           | All NLP happens in the cloud—deploys easily on small VPSes, no heavy local ML.                                     |
+| **One-click CSV**         | Instant “📥 Download Combined CSV” button—ready for Excel, Sheets, ATS, BI, etc.                                   |
+| **Friendly UI**           | Single-page Streamlit layout, emoji status, and progress spinners—great for non-tech HR staff.                     |
+| **Config-driven**         | API key, model path, retry policy, and cool-off live in one **CONFIG** block—no hunting through code.              |
+| **Dependency-light**      | Just six runtime libraries—cold-starts are fast even on free-tier hosts.                                           |
+
+---
+
+## 🛠 Quick-start
+
+### 1 · Clone & install
 
 ```bash
 git clone https://github.com/your-handle/resume-analyzer.git
 cd resume-analyzer
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-````
 
+python -m venv .venv
+# Windows ➜ .\.venv\Scripts\activate
+source .venv/bin/activate
+
+pip install -r requirements.txt
 ### 2. Get a Google AI Studio **API key**
 
 1. Open **[https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)** (or “API Keys” in Google AI Studio left menu).
