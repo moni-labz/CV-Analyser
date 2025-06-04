@@ -134,7 +134,7 @@ API_KEY = "AIzaYourKeyHere"
 Now you're ready to launch the app:
 
 ```bash
-streamlit run streamlit_app.py
+streamlit run app.py
 ```
 
 After a few seconds, the app will open automatically in your browser at:
