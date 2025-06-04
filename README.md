@@ -29,10 +29,7 @@ Powered by **Google Gemini 2.0 Flash** with an infinite-retry loop and random co
 | **Dependency-light**      | Just six runtime libraries—cold-starts are fast even on free-tier hosts.                                           |
 
 ---
-Sure! Here's a **clean, detailed, beginner-friendly "Install & Run" section** you can directly copy into your `README.md`.
-It uses **step-by-step instructions**, **separate command blocks**, and includes explanations for both **Windows** and **Linux/macOS**.
 
----
 
 ````markdown
 ## 🛠 How to Install and Run the Resume Analyzer
