@@ -1,4 +1,4 @@
-# 📄 Resume Analyzer — *Gemini-Powered* Streamlit App
+# 📄 Resume Analyzer — *AI-Powered* Streamlit App
 
 Automatically turn **up to five** PDF / DOCX résumés into a neat CSV.
 
