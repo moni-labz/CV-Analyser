@@ -1,0 +1,7 @@
+streamlit
+requests
+pandas
+python-dateutil
+PyPDF2
+python-docx
+matplotlib
